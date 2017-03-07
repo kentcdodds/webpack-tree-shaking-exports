@@ -5,11 +5,13 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
   "dependencies": {
+    "prettier": "^0.21.0",
     "webpack": "^2.2.1"
   },
   "repository": "git@github.com:kentcdodds/webpack-tree-shaking-exports.git",
   "scripts": {
     "build": "webpack --entry ./index.js --output-filename bundle.js",
-    "build:prod": "webpack --entry ./index.js --output-filename bundle.prod.js -p"
+    "build:prod": "webpack --entry ./index.js --output-filename bundle.prod.js -p",
+    "postbuild:prod": "prettier ./bundle.prod.js > ./bundle.prod-formatted.js"
   }
 }
