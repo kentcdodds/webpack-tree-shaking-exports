@@ -26,10 +26,10 @@
   function(t, n, e) {
     "use strict";
     var r = e(1);
-    e(2), e(3);
     e.d(n, "a", function() {
       return r.a;
     });
+    e(2), e(3);
   },
   function(t, n, e) {
     "use strict";
