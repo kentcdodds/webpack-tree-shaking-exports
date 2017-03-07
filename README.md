@@ -20,12 +20,12 @@ yarn run build:prod
 
 Run the `build` script and open up the `bundle.js` to see how webpack will omit the exports in the `main.js`
 
-Then run the `build:prod` script and open up the `bundle.prod.js` and you'll see that there are no occurrences of the strings "B" or "C" in the output. They were tree-shaken out!
+Then run the `build:prod` script and open up the `bundle.prod-formatted.js` and you'll see that there are no occurrences of the strings "B" or "C" in the output. They were tree-shaken out!
 
 **What's happening?**
 
 When you run the `build` webpack looks at the import statements and marks each as used/unused (my guess is that all start as unused and as webpack resolves `imports` it marks them as used).
 You'll notice in the `bundle.js` file that there's a comment indicating that there are some unused exports for the B and C exports. Those do NOT get the fancy `__webpack_require__.d(__webpack_exports__` stuff.
 If you look at the code, you'll notice that `const B = 'B'` and `const C = 'C'` are unused variables. So if you were to uglify this file, those variables would be removed!
-And this is exactly what happens. If you look in the `bundle.prod.js` file, you'll not find any references to those in the output. The entire module has been removed by UglifyJS. The unused variables are removed, Tree shaking FTW!
+And this is exactly what happens. If you look in the `bundle.prod-formatted.js` file, you'll not find any references to those in the output. The entire module has been removed by UglifyJS. The unused variables are removed, Tree shaking FTW!
 
